@@ -1,0 +1,59 @@
+/* Input search */
+.search {
+  margin: auto;
+}
+
+.search input {
+  border-radius: 3px;
+  color: #484848;
+  background: url('/images/light-search-icon.svg');
+  background-repeat: no-repeat;
+  background-position: left 15px center;
+  background-size: 20px 20px;
+  padding-left: 2.8em;
+  width: 42%;
+  height: 45px;
+  margin-top: 6%;
+  background-color: #f8f8f8;
+  border: 0;
+  font-size: medium;
+  box-shadow: 1px 1px 1px #f8f8f8;
+}
+
+.search input:focus {
+  outline: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Suggestions section */
+.options {
+  max-height: 200px;
+  margin: auto;
+  width: 42%;
+  background-color: white;
+  font-size: 14px;
+  overflow-y: auto;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.options div {
+  padding: 0.8em;
+  min-height: 20px;
+  text-align: left;
+  outline: 0;
+}
+
+.options div:hover {
+  cursor: pointer;
+}
+
+.option-active:hover {
+  background-color: #e8e8e9;
+  color: black;
+}
+
+.options li:not(:last-of-type) {
+  border-bottom: 1px solid #999;
+}
