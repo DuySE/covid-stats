@@ -5,7 +5,7 @@ import './Table.css';
 const Table = ({ summary, global, countries, search }) => {
   return (
     <div className="main-table">
-      <h1>Global</h1>
+    <h1>Daily global summary</h1>
       <table>
         <thead>
           <tr>
@@ -28,7 +28,7 @@ const Table = ({ summary, global, countries, search }) => {
           </tr>
         </tbody>
       </table>
-      <h1>By country</h1>
+      <h1>Daily summary by country</h1>
       <Autocomplete countries={countries} search={search} />
       <table>
         <thead>

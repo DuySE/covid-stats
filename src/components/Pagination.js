@@ -23,7 +23,7 @@ const Pagination = ({ summary, paginate, total }) => {
       pages.push(
         <li key={i}>
           <a
-            href="#"
+            href="#/"
             onClick={e => onClick(e, i)}
             className={i === 1 ? 'active' : ''}> {i}
           </a>

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import Autocomplete from './components/Autocomplete';
 import Table from './components/Table';
 import Pagination from './components/Pagination';
 import { RECORDS_PER_PAGE } from './components/Constant';
@@ -50,6 +49,7 @@ const App = () => {
 
   return (
     <div className="App">
+      <h1>COVID-19 CORONAVIRUS PANDEMIC</h1>
       <Table summary={currentSum} global={global} countries={countries} search={search} />
       <Pagination summary={summary} paginate={paginate} total={total} />
     </div>

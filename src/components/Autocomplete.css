@@ -29,9 +29,10 @@
 /* Suggestions section */
 .options {
   width: 30%;
+  min-height: 200px;
   max-height: 200px;
-  margin: 0 auto;
-  top: 45px;
+  margin: auto;
+  top: 55%;
   left: 0;
   right: 0;
   bottom: 0;

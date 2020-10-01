@@ -87,6 +87,7 @@ const Autocomplete = ({ countries, search }) => {
                 key={option}
                 onClick={e => { onClick(e); search(option) }}
                 onBlur={e => onBlur(e)}
+                onKeyDown={e => { onClick(e); search(option) }}
               >
                 {option}
               </div>
