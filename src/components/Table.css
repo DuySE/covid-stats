@@ -1,12 +1,12 @@
 table {
   border-collapse: collapse;
-  width: 100%;
+  margin: auto;
+  table-layout: auto;
 }
 
 table td, table th {
   border: 1px solid #ddd;
   padding: 8px;
-  table-layout: auto;
 }
 
 table tr:nth-child(even){
@@ -20,7 +20,7 @@ table tr:hover {
 table th {
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
   background-color: #4CAF50;
   color: white;
 }

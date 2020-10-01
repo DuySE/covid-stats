@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import './Autocomplete.css';
 
-const Autocomplete = ({ data }) => {
+const Autocomplete = ({ countries, search }) => {
   /*
     States:
     - activeOption: active option's index
@@ -20,13 +20,18 @@ const Autocomplete = ({ data }) => {
   const onChange = e => {
     const userInput = e.currentTarget.value;
     // Filter out options that match with user input
-    const matchedOptions = data.filter(
+    const matchedOptions = countries.filter(
       option => option.toLowerCase().indexOf(userInput.toLowerCase()) > -1
     );
     setActiveOption(0);
     setMatchedOptions(matchedOptions);
     setShowOptions(true);
-    setUserInput(e.currentTarget.value);
+    setUserInput(userInput);
+    search(userInput);
+  }
+
+  const onBlur = e => {
+    setShowOptions(false);
   }
 
   // Fire event when user click option
@@ -41,20 +46,25 @@ const Autocomplete = ({ data }) => {
     // Fire event when user press Enter key
     if (e.keyCode === 13) {
       setActiveOption(0);
-      setMatchedOptions(false);
+      setShowOptions(false);
       setUserInput(matchedOptions[activeOption]);
+      search(matchedOptions[activeOption]);
     }
     // Fire event when user press Up arrow
     else if (e.keyCode === 38) {
+      e.preventDefault();
       if (activeOption === 0) {
         setActiveOption(matchedOptions.length - 1);
+        return;
       }
       setActiveOption(activeOption - 1);
     }
     // Fire event when user press Down arrow
     else if (e.keyCode === 40) {
-      if (activeOption - 1 === matchedOptions.length) {
+      e.preventDefault();
+      if (activeOption === matchedOptions.length - 1) {
         setActiveOption(0);
+        return;
       }
       setActiveOption(activeOption + 1);
     }
@@ -67,11 +77,16 @@ const Autocomplete = ({ data }) => {
       optionsList = (
         <div className="options">
           {matchedOptions.map((option, index) => {
+            let className;
+            if (index === activeOption) {
+              className = "option-active";
+            }
             return (
               <div
-                className="option-active"
+                className={className}
                 key={option}
-                onClick={onClick}
+                onClick={e => { onClick(e); search(option) }}
+                onBlur={e => onBlur(e)}
               >
                 {option}
               </div>
@@ -88,8 +103,8 @@ const Autocomplete = ({ data }) => {
         type="text"
         placeholder="Search by country"
         value={userInput}
-        onChange={onChange}
-        onKeyDown={onKeyDown}
+        onChange={e => onChange(e)}
+        onKeyDown={e => onKeyDown(e)}
       />
       {optionsList}
     </div>
@@ -97,10 +112,10 @@ const Autocomplete = ({ data }) => {
 }
 
 Autocomplete.defaultProps = {
-  data: []
+  countries: []
 }
 Autocomplete.propTypes = {
-  data: PropTypes.instanceOf(Array).isRequired
+  countries: PropTypes.instanceOf(Array).isRequired
 }
 
 export default Autocomplete;

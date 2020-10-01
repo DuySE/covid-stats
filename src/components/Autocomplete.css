@@ -1,8 +1,8 @@
-/* Input search */
-.search {
-  margin: auto;
+* {
+  box-sizing: border-box;
 }
 
+/* Input search */
 .search input {
   border-radius: 3px;
   color: #484848;
@@ -11,13 +11,13 @@
   background-position: left 15px center;
   background-size: 20px 20px;
   padding-left: 2.8em;
-  width: 42%;
+  width: 30%;
   height: 45px;
-  margin-top: 6%;
   background-color: #f8f8f8;
   border: 0;
   font-size: medium;
   box-shadow: 1px 1px 1px #f8f8f8;
+  margin-bottom: 2em;
 }
 
 .search input:focus {
@@ -28,14 +28,19 @@
 
 /* Suggestions section */
 .options {
+  width: 30%;
   max-height: 200px;
-  margin: auto;
-  width: 42%;
+  margin: 0 auto;
+  top: 45px;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: white;
   font-size: 14px;
   overflow-y: auto;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
+  position: absolute;
 }
 
 .options div {
@@ -49,6 +54,8 @@
   cursor: pointer;
 }
 
+.option-active,
+.option-active:active,
 .option-active:hover {
   background-color: #e8e8e9;
   color: black;

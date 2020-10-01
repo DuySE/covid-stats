@@ -1,10 +1,35 @@
 import React from 'react';
+import Autocomplete from './Autocomplete';
 import './Table.css';
 
-const Table = ({ data }) => {
+const Table = ({ summary, global, countries, search }) => {
   return (
     <div className="main-table">
-      <h1>Daily summary by country</h1>
+      <h1>Global</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Total Confirmed</th>
+            <th>New Confirmed</th>
+            <th>Total Deaths</th>
+            <th>New Deaths</th>
+            <th>Total Recovered</th>
+            <th>New Recovered</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{global.TotalConfirmed}</td>
+            <td>{global.NewConfirmed}</td>
+            <td>{global.TotalDeaths}</td>
+            <td>{global.NewDeaths}</td>
+            <td>{global.TotalRecovered}</td>
+            <td>{global.NewRecovered}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h1>By country</h1>
+      <Autocomplete countries={countries} search={search} />
       <table>
         <thead>
           <tr>
@@ -19,10 +44,10 @@ const Table = ({ data }) => {
           </tr>
         </thead>
         <tbody>
-          {data && data.map((value, index) =>
+          {summary && summary.map((value, index) =>
             (
               <tr key={value.CountryCode}>
-                <th>{index + 1}</th>
+                <td>{index + 1}</td>
                 <td>{value.Country}</td>
                 <td>{value.TotalConfirmed}</td>
                 <td>{value.NewConfirmed}</td>
