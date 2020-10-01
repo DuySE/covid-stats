@@ -13,7 +13,7 @@ table tr:nth-child(even){
   background-color: #f2f2f2;
 }
 
-table tr:hover {
+table tr:hover:not(:first-child) {
   background-color: #ddd;
 }
 
@@ -21,6 +21,58 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  background-color: #4CAF50;
-  color: white;
+  color: black;
+}
+
+@media 
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+	
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%;
+		text-align: right;
+	}
+	
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		padding-right: 10px;
+		width: 45%; 
+		white-space: nowrap;
+		text-align: left;
+		font-weight: bold;
+  }
+	
+	/* Label data */
+	#country td:nth-of-type(1):before { content: "No"; }
+	#country td:nth-of-type(2):before { content: "Country"; }
+	#country td:nth-of-type(3):before { content: "Total Confirmed"; }
+	#country td:nth-of-type(4):before { content: "New Confirmed"; }
+	#country td:nth-of-type(5):before { content: "Total Deaths"; }
+	#country td:nth-of-type(6):before { content: "New Deaths"; }
+	#country td:nth-of-type(7):before { content: "Total Recovered"; }
+	#country td:nth-of-type(8):before { content: "New Recovered"; }
+
+	#global td:nth-of-type(1):before { content: "Total Confirmed"; }
+	#global td:nth-of-type(2):before { content: "New Confirmed"; }
+	#global td:nth-of-type(3):before { content: "Total Deaths"; }
+	#global td:nth-of-type(4):before { content: "New Deaths"; }
+	#global td:nth-of-type(5):before { content: "Total Recovered"; }
+	#global td:nth-of-type(6):before { content: "New Recovered"; }
 }

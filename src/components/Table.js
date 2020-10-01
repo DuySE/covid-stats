@@ -6,7 +6,7 @@ const Table = ({ summary, global, countries, search }) => {
   return (
     <div className="main-table">
     <h1>Daily global summary</h1>
-      <table>
+      <table id="global">
         <thead>
           <tr>
             <th>Total Confirmed</th>
@@ -30,10 +30,10 @@ const Table = ({ summary, global, countries, search }) => {
       </table>
       <h1>Daily summary by country</h1>
       <Autocomplete countries={countries} search={search} />
-      <table>
+      <table id="country">
         <thead>
           <tr>
-            <th>#</th>
+            <th>No.</th>
             <th>Country</th>
             <th>Total Confirmed</th>
             <th>New Confirmed</th>
