@@ -42,6 +42,7 @@
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   position: absolute;
+  z-index: 1;
 }
 
 .options div {
