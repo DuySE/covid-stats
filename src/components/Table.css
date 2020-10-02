@@ -21,7 +21,13 @@ table th {
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: center;
-  color: black;
+	color: black;
+	background-color: #b8b8b8;
+}
+
+#country th {
+	position: sticky;
+	top: 0;
 }
 
 @media 
@@ -60,7 +66,7 @@ only screen and (max-width: 760px),
   }
 	
 	/* Label data */
-	#country td:nth-of-type(1):before { content: "No"; }
+	#country td:nth-of-type(1):before { content: "No."; }
 	#country td:nth-of-type(2):before { content: "Country"; }
 	#country td:nth-of-type(3):before { content: "Total Confirmed"; }
 	#country td:nth-of-type(4):before { content: "New Confirmed"; }
